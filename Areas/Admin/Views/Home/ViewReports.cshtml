@@ -1,0 +1,47 @@
+﻿@model IEnumerable<RegisterDriverViewModel>
+
+
+<div class="pt-5 mt-5  container">
+
+    <div class="w-100 p-2">
+
+        <table id="example" class="table mt-4" style="width: 100%">
+            <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Drivers Name</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Date & time</th>
+                <th>Status</th>
+                <th>Fair Collected</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @try
+            {
+                @foreach (var i in @Model)
+                {
+                    <tr>
+                        <td>@i.CustomerName</td>
+                        <td>@i.FirstName</td>
+                        <td>@i.Source</td>
+                        <td>@i.Destination</td>
+                        <td>@i.BookingDate</td>
+                        <td>@i.BookingStatus</td>
+                        <td>@i.Fair</td>
+
+                    </tr>
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>

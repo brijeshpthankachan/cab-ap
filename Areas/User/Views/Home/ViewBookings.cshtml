@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Booking>
+
+
+<div class="d-flex   justify-content-around  container pt-5 mt-5">
+
+
+    <div class="w-100 p-2">
+        
+        <h4 class="my-3">Your Bookings</h4>
+
+        <table id="example" class="table " style="width: 100%">
+            <thead>
+            <tr>
+                <th>Driver Name</th>
+                <th>Starting Place</th>
+                <th>Destination</th>
+                <th>Fair</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @try
+            {
+                @foreach (var i in @Model)
+                {
+                    <tr>
+                        <td>@i.ApplicationUsers.FirstName </td>
+                        <td>@i.Source </td>
+                        <td>@i.Destination</td>
+                        <td>@i.Fair</td>
+                        <td>@i.BookingStatus</td>
+                        <td>
+                            <a class="btn btn-primary">get Details</a>
+                            @if (@i.BookingStatus == "Payment Pending")
+                            {
+                                    <a class="btn btn-success">Pay Now</a>
+
+                                }
+                                else
+                                {
+                                    <a class="btn btn-success d-none">Pay Now</a>
+
+                                }
+                            </td>
+                    </tr>
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<RegisterDriverViewModel>
+
+
+<div class="container pt-5 mt-5">
+    
+    <h3>Search Cabs</h3>
+
+
+    <div class="p-3 w-75">
+
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+                <div class=" pt-5" style="width:100% ">
+                    <label class="form-label">From</label>
+                    <input type="text" class="form-control" name="location" id="location">
+                    <label class="form-label pt-2">Choose Your Ride</label>
+                    <select class="form-select" name="cabtype" id="cabtype">
+                        <option value="Sedan">Sedan</option>
+                        <option value="Hatch Back"> Hatch Back</option>
+                        <option value="SUV">SUV</option>
+                        <option value="MUV">MUV</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Convertible">Convertible</option>
+                    </select>
+                    <div class="d-flex justify-content-end pt-3">
+                        <button class="btn btn-primary" type="submit" value="Index">Search</button>
+
+                    </div>
+                </div>
+            }
+
+
+        </div>
+
+
+    <div class="w-100 p-2">
+
+
+        <table id="example" class="table " >
+            <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @try
+            {
+                @foreach (var i in @Model)
+                {
+                    <tr>
+                        <td>@i.FirstName @i.LastName </td>
+                        <td>@i.CabName</td>
+                        <td>@i.CabType</td>
+                        <td>
+                            <a class="btn btn-outline-primary" asp-area="User" asp-controller="Home" asp-action="BookCab" asp-route-id="@i.ApplicationUserID" >Book Now</a>
+                        </td>
+                    </tr>
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,84 @@
+﻿@model RegisterDriverViewModel
+
+
+<div class="p-5">
+    <h4 class="pt-5 my-5">View Profile</h4>
+
+
+    <form method="post">
+
+        <div style="width: 1000px">
+
+
+            <div>
+
+                <label class="form-label">Cab Name</label>
+                <input asp-for="CabName" type="text" class="form-control">
+                <span asp-validation-for="CabName" class="text-danger"></span>
+
+
+                <label class="form-label">Cab Type</label>
+                <select class="form-select" asp-for="CabType">
+                    <option value="Sedan">Sedan</option>
+                    <option value="Hatch Back"> Hatch Back</option>
+                    <option value="SUV">SUV</option>
+                    <option value="MUV">MUV</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Convertible">Convertible</option>
+                </select>
+                <span asp-validation-for="CabType" class="text-danger"></span>
+
+
+                <label asp-for="CabLocation" class="form-label">Work Location</label>
+                <input asp-for="CabLocation" type="text" class="form-control">
+                <span asp-validation-for="CabLocation" class="text-danger"></span>
+
+
+                <label asp-for="LicenseNumber" class="form-label">License Number</label>
+                <input asp-for="LicenseNumber" type="text" class="form-control" readonly>
+                <span asp-validation-for="LicenseNumber" class="text-danger"></span>
+
+
+                <label asp-for="RcNumber" class="form-label">Rc Number</label>
+                <input asp-for="RcNumber" type="text" class="form-control" readonly>
+
+
+            </div>
+
+
+            <div style="width: 1000px">
+                <label class="form-label">First Name</label>
+                <input asp-for="FirstName" type="text" class="form-control">
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+
+
+                <label class="form-label">Last Name</label>
+                <input asp-for="LastName" type="text" class="form-control">
+                <span asp-validation-for="LastName" class="text-danger"></span>
+
+
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" type="text" class="form-control">
+                <span asp-validation-for="Email" class="text-danger"></span>
+
+
+                <label asp-for="PhoneNumber" class="form-label">Phone number</label>
+                <input asp-for="PhoneNumber" type="text" class="form-control">
+
+                <input asp-for="ApplicationUserID" type="text" class="form-control" hidden>
+
+            </div>
+
+        
+        </div>
+        
+        <div class="d-flex justify-content-around pt-3">
+            <input type="submit" value="Update Details" class="btn btn-primary">
+            <input type="button" value="Delete Account" class="btn btn-danger">
+
+
+        </div>
+
+    </form>
+
+</div>
